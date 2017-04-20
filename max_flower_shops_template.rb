@@ -2,8 +2,8 @@ require 'pry'
 
 def maxFlowerShops(length, intervals)
   state = {
-    left_boundary: 0,
-    occupied_plots: [],
+    left_boundary: 0,   # the leftmost index that can still be planted on
+    occupied_plots: [], # the number of planted flowers on the indexes to the right of left_boundary
     num_flower_shops: 0,
   }
 
@@ -94,13 +94,15 @@ def run_max_flower(filename)
   res
 end
 
-[
-  'int_9_10.txt',
-  'int_100_100.txt',
-  'int_1000_20000.txt',
-  'int_10000_2000.txt',
-  'int_50000_10000.txt',
-  'int_500000_100000.txt',
-].each do |file|
-  run_max_flower(file)
+if !$running_specs
+  [
+    'int_9_10.txt',
+    'int_100_100.txt',
+    'int_1000_20000.txt',
+    'int_10000_2000.txt',
+    'int_50000_10000.txt',
+    'int_500000_100000.txt',
+  ].each do |file|
+    run_max_flower(file)
+  end
 end
